@@ -5,7 +5,41 @@
  * You may find the readings in chapter 3. Relationships between Classes
  * helpful while working through this exercise.
  */
+public class CrossbodyBag extends Bag {
+    private int numberOfStraps;
+    /**
+     * Creates a new CrossbodyBag with the given color,
+     * capacity, and straps.
+     *
+     * @param color : the color of the bag
+     * @param capacity : the number of items that can fit in the bag
+     * @param straps : the number of straps
+     */
+    public CrossbodyBag(String color, int capacity, int straps) {
+        /**
+         * This is how we call the parent's constructor
+         * The Python equivalent is super().__init__(...)
+         */
+        super(color, capacity);
+        this.numberOfStraps = straps;
+    }
 
+    public int getNumberOfStraps() {
+        return this.numberOfStraps;
+    }
+
+    @Override
+    public void enhance() {
+        super.increaseCapacity(2);
+    }
+
+    @Override
+    public String toString() {
+        return super.getColor() + " Crossbody Bag with " + this.getNumberOfStraps() + " straps (" + super.getNumberOfContents() + " / " +
+                super.getCapacity() + ")";
+    }
+
+}
 /*
  * TODO: Create a public class named CrossbodyBag which is a subclass of Bag
  *       In addition to the attributes in Bag, the CrossbodyBag should have an
